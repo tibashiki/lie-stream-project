@@ -29,7 +29,7 @@ public class UserCount {
     public static void main(String[] args) throws Exception {
         Map<String, Tuple3<String,String,String>> AreaMap = new HashMap<>();
         // 添加数据到AreaMap
-        final List<AreaDict> dataBeans = new JsonUtil<AreaDict>().readListFile("conf/dim_area_dict.json", AreaDict.class);
+        final List<AreaDict> dataBeans = new JsonUtil().<AreaDict>readListFile("conf/dim_area_dict.json", AreaDict.class);
         for (AreaDict area : dataBeans) {
             AreaMap.put(area.getGeohash(),Tuple3.of(area.getProvince(),area.getCity(),area.getRegion()));
         }
