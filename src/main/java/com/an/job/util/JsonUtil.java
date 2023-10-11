@@ -9,12 +9,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
 
-public class JsonUtil<T> {
-    public List<T> readListFile(String filePath, Class<T> clazz) {
+public class JsonUtil {
+    public <T> List<T> readListFile(String filePath, Class<T> clazz) {
         File file = new File(filePath);
         return readListFile(file,clazz);
     }
-    public List<T> readListFile(File file, Class<T> clazz) {
+    public <T> List<T> readListFile(File file, Class<T> clazz) {
         try {
             String content = new String(Files.readAllBytes(file.toPath()));
             JSONArray jsonArray = JSON.parseArray(content);
