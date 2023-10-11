@@ -36,7 +36,7 @@ public class UserCount {
 
 
         DataStream<String> kafkaStream = FlinkUtil.createKafkaStream(args, SimpleStringSchema.class);
-        kafkaStream.print();
+//        kafkaStream.print();
 
         // 创建一个描述符来定义广播状态
         MapStateDescriptor<Void, Map<String, Tuple3<String, String, String>>> broadcastStateDescriptor =
