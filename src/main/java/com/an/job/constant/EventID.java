@@ -15,4 +15,5 @@ public class EventID {
     public static final String LIVE_THUMBS = "liveThumbs";
     // 退出直播间
     public static final String LIVE_LEAVE = "liveLeave";
+    public static final String Starts_Product="product";
 }
