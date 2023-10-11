@@ -39,3 +39,4 @@ build/
 
 chk/
 out/
+/src/main/resources/META-INF
