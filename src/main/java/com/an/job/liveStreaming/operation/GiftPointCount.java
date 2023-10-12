@@ -38,8 +38,10 @@ public class GiftPointCount {
 
         dataStream.process(new JsonToDataBeanV2())
                 .filter((FilterFunction<DataBean>) bean -> LIVE_REWARD.equals(bean.getEventId()))
+                // heb
                 .connect(broadcast)
                 .process(new GiftConnectFunction(stateDescriptor))
+
                 .keyBy(tuple2 -> tuple2.f0)
                 .reduce(new ReduceFunction<Tuple3<String, String, Double>>() {
                     @Override
