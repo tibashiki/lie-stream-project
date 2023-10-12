@@ -34,7 +34,8 @@ public class GiftConnectFunction extends BroadcastProcessFunction<DataBean, Live
     public void processBroadcastElement(LiveGift gift, BroadcastProcessFunction<DataBean, LiveGift, Tuple3<String, String, Double>>.Context ctx, Collector<Tuple3<String, String, Double>> out) throws Exception {
         BroadcastState<Integer, LiveGift> broadcastState = ctx.getBroadcastState(stateDescriptor);
         broadcastState.remove(gift.getId());
-        if (gift.getDeleted() == 0)
-            broadcastState.put(gift.getId(),gift);
+        if (gift.getDeleted() == 0) {
+            broadcastState.put(gift.getId(), gift);
+        }
     }
 }
